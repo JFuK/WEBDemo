@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Document</title>
+</head>
+<body>
+	
+
+<canvas id="canvas">请使用高版本浏览器，IE8以及一下不支持canvas</canvas>
+<script type="text/javascript">
+window.onload = function() {
+  var width,height,
+  canvas = document.getElementById("canvas");
+  canvas.width = width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
+  canvas.height = height = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+  var ctx = canvas.getContext('2d');
+  var num = Math.ceil(width / 2);
+  var y = Array(num).join(0).split('');
+  var draw = function() {
+        ctx.fillStyle = 'rgba(0,0,0,0.05)'; //核心代码，创建黑色背景，透明度为0.05的填充色。
+        ctx.fillRect(0, 0, width, height);
+        ctx.fillStyle = '#0f0'; //设置了字体颜色为绿色
+        ctx.font = '10px Microsoft YaHei';//设置字体大小与family
+        for(i = 0; i < num; i++) {
+            var x = (i * 10) + 10;//确定绘制的x坐标
+            text = String.fromCharCode(65 + Math.random() * 62);
+            var y1 = y[i];//确定绘制的y坐标
+            ctx.fillText(text, x, y1);
+            if(y1 > Math.random() * 10 * height) {//判断为坐标是否超出一定范围，最大不能超过屏幕可是高度
+                y[i] = 0;
+            } else {
+                y[i] = parseInt(y[i]) + 10;
+            }
+        }
+    };
+    (function(){
+        setInterval(draw, 10);
+    })();
+
+}
+</script>
+
+
+</body>
+</html>
