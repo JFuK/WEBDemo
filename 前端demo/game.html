@@ -43,6 +43,10 @@
         .black {
             background: black;
         }
+        .buttongroup input{
+            display:inline-block;
+            margin:center;
+        }
     </style>
 </head>
 <body>
@@ -52,8 +56,10 @@
     <div id="main">
         <div id="con"></div>
     </div>
-    <input type="button" name="start" id="start" value="start">
-    <input type="button" name="stop" id="stop" value="stop">
+    <div class='buttongroup'>
+        <input type="button" name="start" id="start" value="start">
+        <input type="button" name="stop" id="stop" value="stop">
+    </div>
 </body>
 <script>
     var clock = null;
