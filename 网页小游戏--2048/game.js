@@ -1,6 +1,5 @@
 var ar =[];ar[0]=[0,0,0,0];ar[1]=[0,0,0,0];ar[2]=[0,0,0,0];ar[3]=[0,0,0,0];
 var temp=[0,0,0,0,0];
-var startTime=new Date().getSeconds();
 var move=0;
 var score=0;
 var change=1;
@@ -66,8 +65,7 @@ function getKey(event){
             shuaxin();
         } 
     }else{//游戏结束
-        var endTime=new Date().getSeconds();
-        alert("游戏结束"+"您的成绩是"+score+'\n'+'用时'+Math.ceil((endTime-startTime)/1000)+'秒');
+        alert("游戏结束"+"您的成绩是"+score);
         //游戏重置
         ar =[0,0,0,0];
         ar[0]=[0,0,0,0];
@@ -174,28 +172,6 @@ function gameOverJudge(ar){
     var result=(gameover1&&gameover2&&gameover3)?true:false;
     return result;
 }
-
-// function gameGuide(ar,direction){
-//     for(var i=0;i<=3;i++){
-//         // gameover2=1;
-//         for(var j=1;j<=3;j++){
-//             if(ar[i][j]==ar[i][j-1]){
-//                 gameover2=1;
-//                 return '向左或向右移动';
-//             }
-//         }
-//     }
-//     //判断每一列是否存在可以合并的表格，有则游戏继续
-//     for(var i=1;i<=3;i++){
-//         // gameover3=1;
-//         for(var j=0;j<=3;j++){
-//             if(ar[j][i-1]==ar[j][i]){
-//                 gameover3=1;
-//                 return '向上或向下移动';
-//             }
-//         }
-//     }
-// }
 //判断是否存在空白格
 function whiteSpace(ar){
     for(var i=0;i<=3;i++){
