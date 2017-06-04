@@ -1,0 +1,85 @@
+* {
+	font-size: 13px;
+	font-stretch: '宋体'
+	padding:0;
+	margin:0;
+}
+#header {
+	position: fixed;
+	width: 100%;
+	height: 40px;
+	background:#0f0f0f;
+	border-bottom: 1px solid #ddd;
+}
+#header > h4 {
+	margin: 0;
+	padding: 0;
+	font-weight: bold;
+	padding-left: 15px;
+	line-height: 40px;
+	color:#fff;
+}
+.online-member-panel {
+	margin: 5px 0 0 0;
+	/*width: 100%;*/
+	padding: 15px;
+	border:1px solid #ddd;
+	border-radius: 5px;
+	overflow-y:auto;
+	box-shadow:0 0 5px #ccc; 
+	height: 400px;
+}
+/*.online-member-panel > .header {
+	padding-left: 15px;
+	padding-right: 15px;
+
+}*/
+#content{
+	margin-top: 55px;
+	margin-left: 10px;
+}
+ul {
+	margin: 10px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+#memer-list > li {
+	float: left;
+	margin-left: 2px;
+	/*margin-right: 2px;*/
+}
+.chat-panel {
+	margin: 5px 0 0 10px;
+	height: 300px;
+	padding: 5px;
+	border:1px solid #ddd;
+	border-radius: 5px;
+	overflow-y:auto;
+	box-shadow:0 0 10px #ccc;
+}
+textarea {
+	resize:none;
+}
+#send {
+	margin-top: 10px;
+	float:right;
+}
+p {
+	color:#ccc;
+}
+p > span.time {
+	color:#ccc;
+	margin-right: 10px;
+}
+p > span.person {
+	color:#428bca;
+	padding-right: 5px;
+	padding-left: 5px;
+}
+p > span.msg {
+	color:#666;
+}
+#user{
+	color:#fff;
+	z-index:0;
+}
