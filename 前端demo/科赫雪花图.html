@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>科赫雪花图绘制</title>
+	<style type="text/css">
+		#snow{
+			display: block;
+			margin: 20px auto;
+			/*background: green;*/
+			border: 2px solid black;
+			border-radius: 2px;
+		}
+	</style>
+</head>
+<body>
+	<canvas id="snow" width=300 height=300></canvas>
+	<div style="width:250px;margin: 0px auto">
+	<label>级别：<input id="num" type="text" placeholder="请输入0至8的任意数"></label>
+	<button onclick="snoflake()">绘制</button>
+	</div>
+	<script type="text/javascript">
+        
+        function snoflake(){
+        	var canvas=document.getElementById("snow");
+        	var c=canvas.getContext("2d");
+        	c.clearRect(0,0,400,400);
+        	var n=document.getElementById("num").value;
+        	var len=200;
+        	var x=50;
+        	var y=210;
+        	var deg=Math.PI/180;
+        	c.beginPath();
+            c.save();
+            c.translate(x,y);
+            c.moveTo(0,0);
+            leg(n);
+            c.rotate(-120*deg);
+            leg(n);
+            c.rotate(-120*deg);
+            leg(n);
+            c.closePath();
+            c.restore();
+
+            function leg(n){
+                c.save();
+                if(n==0){
+                    c.lineTo(len,0);
+                }else{
+                    c.scale(1/3,1/3);
+                    leg(n-1);
+                    c.rotate(60*deg);
+                    leg(n-1);
+                    c.rotate(-120*deg);
+                    leg(n-1);
+                    c.rotate(60*deg);
+                    leg(n-1);
+                }
+                c.restore();
+                c.translate(len,0);
+            }
+           c.stroke();
+        }
+
+	</script>
+</body>
+</html>
