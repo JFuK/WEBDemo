@@ -7,3 +7,4 @@
 6. <a href='http://jiangk1214.win/WEBDemo/前端demo/SVGClock.html'>SVG绘制简易钟表</a>
 7. <a href='http://jiangk1214.win/WEBDemo/网页小游戏--2048/index.html'>2048游戏网页版</a>
 8. <a href='http://jiangk1214.win/WEBDemo/js瀑布流/index.html'>图片瀑布流</a>
+9. <a href='http://jiangk1214.win/WEBDemo/前端demo/科赫雪花图.html'>canvas绘制科赫雪花图</a>
