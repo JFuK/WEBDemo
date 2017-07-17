@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({
 	extended: false
 }));
 app.use(session({
-	secret: 'ScumVirus',
+	secret: 'ChatRoom',
 	name: 'chatuser', //这里的name值得是cookie的name，默认cookie的name是：connect.sid
 	cookie: {
 		maxAge: 3600000
@@ -52,7 +52,7 @@ app.post('/login', function(req, res) {
 		if(!obj){
 			resData.msg=1;
 		}else{
-			if (pwd == obj.pwd) {
+			if (pwd ==obj.pwd) {
 				var params = [time, ip, obj.id];
 				updateLoginInfo(params);
 				resData.msg = 0;
@@ -60,7 +60,6 @@ app.post('/login', function(req, res) {
 				resData.msg =-1;
 			}
 		}
-		
 		//设置session
 		req.session.user = name;
 		res.send(resData);
@@ -126,7 +125,7 @@ io.on('connection', function(socket) {
 		var time = getTime();
 		client.name = name;
 		var index = getArrIndex(name,onlineMember);
-		if(index == -1){
+		if(index ===-1){
 			onlineMember.push(client.name);
 			console.log(time + " " + client.name + " login");
 		}
@@ -180,7 +179,7 @@ io.on('connection', function(socket) {
 var getTime = function() {
 	var date = new Date();
 	return date.getFullYear() + "-" + tc(date.getMonth() + 1) + "-" + tc(date.getDate()) + " " + tc(date.getHours()) + ":" + tc(date.getMinutes()) + ":" + tc(date.getSeconds());
-}
+};
 
 //不足10的首位补0
 var tc = function(num) {
@@ -189,7 +188,7 @@ var tc = function(num) {
 	} else {
 		return "0" + num;
 	}
-}
+};
 
 //根据用户获取用户信息
 var getUserById = function(name, callback) {
@@ -203,7 +202,7 @@ var getUserById = function(name, callback) {
 		}
 		return callback(result[0]);
 	});
-}
+};
 
 //添加新用户
 var addUser = function(params, callback) {

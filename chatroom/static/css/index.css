@@ -1,6 +1,6 @@
 * {
-	font-size: 13px;
-	font-stretch: '宋体'
+	font-size: 1em;
+	font-stretch:normal;
 	padding:0;
 	margin:0;
 }
@@ -44,7 +44,8 @@ ul {
 	list-style: none;
 }
 #memer-list > li {
-	float: left;
+	/*float: left;*/
+	margin-top:5px;
 	margin-left: 2px;
 	/*margin-right: 2px;*/
 }
