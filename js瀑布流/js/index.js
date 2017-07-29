@@ -26,6 +26,7 @@ window.onload=function () {
 function  checkFlag() {
     var cparent=document.getElementById("container");
     var ccontent=getChildElement(cparent,"box");
+    //由于box的祖先元素只有container和body，又container没有边框，所以offsetTop直接获取的就是最后一个box的顶端到body顶端的距离
     var lastContentHeight=ccontent[ccontent.length-1].offsetTop;
     var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
     var pageHeight=document.documentElement.clientHeight||document.body.clientHeight;
@@ -34,7 +35,7 @@ function  checkFlag() {
     }
 }
 
-function imgLocation(parent,content) {
+function imgLocation(parent,content){
     var cparent=document.getElementById(parent);
     var ccontent=getChildElement(cparent,content);
     var imgWidth=ccontent[0].offsetWidth;

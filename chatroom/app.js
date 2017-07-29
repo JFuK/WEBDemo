@@ -8,6 +8,7 @@ var mysql = require('mysql'); //数据库模块
 var io = require('socket.io').listen(server); //socket io模块
 var session = require('express-session'); //如果要使用session，需要单独包含这个模块
 
+//数据库连接配置
 var conn=mysql.createConnection({
 	host: 'localhost', //主机
 	user: 'root', //MySQL认证用户名
@@ -16,6 +17,7 @@ var conn=mysql.createConnection({
 	database: 'chatroom', //数据库
 })
 conn.connect();
+
 //express基本配置
 app.set('port', 3000);
 app.set('views', __dirname + '/views');
@@ -109,16 +111,9 @@ var onlineMember = [];
 
 //WebSocket连接监听
 io.on('connection', function(socket) {
-	//socket.emit('open',onlineMember); //通知客户端已连接
-
-	// 打印握手信息
-	// console.log(socket.handshake);
-
-	// 构造客户端对象
 	var client = {
 		name: '',
 	}
-
 	// 对message事件的监听
 	//登录事件
 	socket.on('login', function(name) {
